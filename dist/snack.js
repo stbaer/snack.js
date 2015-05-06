@@ -51,7 +51,7 @@ Snack.prototype.getContainer = function(){
     if(!container){
         frag = document.createElement('div');
         frag.classList.add('snack-container');
-        this.domParent.addChild(frag);
+        this.domParent.appendChild(frag);
         container = frag;
     }
 
@@ -67,7 +67,6 @@ Snack.prototype.toggle = function(){
 
 Snack.prototype.show = function(content, timeout){
 
-
     this.element.innerHTML = content;
     this.element.classList.add('snack-opened');
 
@@ -79,7 +78,6 @@ Snack.prototype.show = function(content, timeout){
             this._isVisible = false;
         }.bind(this), timeout);
     }
-
 };
 
 Snack.prototype.hide = function(){
@@ -88,7 +86,6 @@ Snack.prototype.hide = function(){
         .remove('snack-opened');
 
     this._isVisible = true;
-
 };
 
 Snack.prototype.destroy = function(){
@@ -96,8 +93,6 @@ Snack.prototype.destroy = function(){
     //@TODO
     // remove event listeners
 
-
     this.container.removeChild(this.element);
-
 };
 },{}]},{},[1]);
