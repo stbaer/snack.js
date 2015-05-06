@@ -10,25 +10,20 @@ global.Snack = Snack;
  * @constructor
  *
  * @property {object} options
- * @property {string} [options.style] - only material atm
+ * @property {Element} [options.domParent=document.body]
  */
 function Snack(options) {
 
     options = options || {};
 
-    var snackbar = document.createElement('div');
+    var snack = document.createElement('div');
+    snack.classList.add('snack');
 
-    snackbar.classList.add('snackbar');
+    this.element = snack;
+    this.domParent = options.domParent || document.body;
+    this.container = this.getContainer();
 
-    this.element = snackbar;
-    this.domParent = options.domParent || document.querySelector('.snackbar-container');
-
-    this.element.classList.add("snackbar");
-    if (options.style) {
-        snackbar.classList.add(options.style);
-    }
-
-    this.domParent.appendChild(this.element);
+    this.container.appendChild(this.element);
 }
 
 // constructor
@@ -42,10 +37,26 @@ Object.defineProperties(Snack, {
         },
         set: function(val){
             this[val ? 'show' : 'hide']();
-
         }
     }
 });
+
+/**
+ * @returns {Element}
+ */
+Snack.prototype.getContainer = function(){
+    var container = this.domParent.querySelector('.snack-container'),
+        frag;
+
+    if(!container){
+        frag = document.createElement('div');
+        frag.classList.add('snack-container');
+        this.domParent.addChild(frag);
+        container = frag;
+    }
+
+    return container;
+};
 
 /**
  *
@@ -58,7 +69,7 @@ Snack.prototype.show = function(content, timeout){
 
 
     this.element.innerHTML = content;
-    this.element.classList.add('snackbar-opened');
+    this.element.classList.add('snack-opened');
 
     this._isVisible = true;
 
@@ -74,7 +85,7 @@ Snack.prototype.show = function(content, timeout){
 Snack.prototype.hide = function(){
 
     this.element.classList
-        .remove('snackbar-opened');
+        .remove('snack-opened');
 
     this._isVisible = true;
 
@@ -86,7 +97,7 @@ Snack.prototype.destroy = function(){
     // remove event listeners
 
 
-    this.domParent.removeChild(this.element);
+    this.container.removeChild(this.element);
 
 };
 },{}]},{},[1]);
