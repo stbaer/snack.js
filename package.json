@@ -2,7 +2,7 @@
   "name": "snack.js",
   "version": "0.0.1",
   "description": "Simple toast notifications for modern browsers without dependencies.",
-  "main": "src/index.js",
+  "main": "src/snack.js",
   "scripts": {
   },
   "repository": {

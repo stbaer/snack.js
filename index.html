@@ -5,15 +5,16 @@
 </head>
 
 <body>
+    <div class="test"></div>
 
-<div class="snack-container"></div>
 <script src="./dist/snack.js"></script>
-
 <script>
     var snack = new Snack();
+    var snack2 = new Snack({domParent: document.querySelector('.test')});
 
+    snack.show('First, container appended to body', 200);
     setTimeout(function () {
-        snack.show('Material Toast', 2000);
+        snack2.show('Second, different dom parent', 2000);
     }, 3000);
 </script>
 </body>
