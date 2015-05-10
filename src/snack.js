@@ -58,9 +58,34 @@ Snack.prototype.toggle = function(){
     this[this.visible ? 'show' : 'hide']();
 };
 
+/**
+ * Returns true content it is a DOM element
+ * @param {*} content
+ * @returns {boolean}
+ */
+Snack.prototype.isElement = function(content){
+    return !!(
+        typeof HTMLElement === "object" ?
+        content instanceof HTMLElement : //DOM2
+        content && typeof content === "object" && content !== null
+        && content.nodeType === 1 && typeof content.nodeName==="string"
+    );
+};
+
+/**
+ * show
+ *
+ * @param {string} content
+ * @param {number} [timeout]
+ */
 Snack.prototype.show = function(content, timeout){
 
-    this.element.innerHTML = content;
+    if(this.isElement(content)){
+        this.element.innerHTML = '';
+        this.element.appendChild(content);
+    }else{
+        this.element.innerHTML = content;
+    }
     this.element.classList.add('snack-opened');
 
     this._isVisible = true;
@@ -73,6 +98,9 @@ Snack.prototype.show = function(content, timeout){
     }
 };
 
+/**
+ * hide
+ */
 Snack.prototype.hide = function(){
 
     this.element.classList
@@ -81,10 +109,9 @@ Snack.prototype.hide = function(){
     this._isVisible = true;
 };
 
+/**
+ * destroy
+ */
 Snack.prototype.destroy = function(){
-
-    //@TODO
-    // remove event listeners
-
     this.container.removeChild(this.element);
 };
