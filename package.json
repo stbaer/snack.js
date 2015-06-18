@@ -1,6 +1,6 @@
 {
   "name": "snack.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Simple toast notifications for modern browsers without dependencies.",
   "main": "src/snack.js",
   "scripts": {
@@ -35,6 +35,7 @@
     "merge-stream": "^0.1.7",
     "minimist": "^1.1.1",
     "require-dir": "^0.3.0",
+    "vinyl": "^0.4.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "1.1.0"
   }
