@@ -1,4 +1,6 @@
-## snack.js
+[![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges)
+
+# snack.js
 
 Simple toast notifications for modern browsers without dependencies.
 Can be used with browserify or standalone.
