@@ -12,7 +12,7 @@
     var snack = new Snack();
     var snack2 = new Snack({domParent: document.querySelector('.test')});
 
-    snack.show('First, container appended to body', 200);
+    snack.show('First, container appended to body', 1000);
     setTimeout(function () {
         snack2.show('Second, different dom parent', 2000);
     }, 3000);

@@ -5,26 +5,19 @@ Can be used with browserify or standalone.
 
 ## Use
 
+`npm install stbaer/snack.js --save-dev`
+
+add the css (dist/css/snack.min.css)
 
 ### browserify
 
-- install: `npm install stbaer/snack.js --save-dev`
-- add the css (dist/css/snack(.min).css)
-- require it `var Snack = require('snack.js');`
-    
-    
-- show a notification:
-```
-snack = new Snack();
+```js
+var Snack = require('snack.js');
+var snack = new Snack();
+
 snack.show('A snack', 4000);
-```    
-    
+```
+
 ### standalone
 
-include the dist/snack(.min).js and dist/css/snack(.min).css, see index.html
-
-
-    
-    
-    
-
+Include snack.min.js and snack.min.css from the dist folder (see index.html).

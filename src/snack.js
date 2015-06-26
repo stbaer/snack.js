@@ -67,8 +67,8 @@ Snack.prototype.isElement = function(content){
     return !!(
         typeof HTMLElement === "object" ?
         content instanceof HTMLElement : //DOM2
-        content && typeof content === "object" && content !== null
-        && content.nodeType === 1 && typeof content.nodeName==="string"
+        content && typeof content === "object" && content !== null &&
+        content.nodeType === 1 && typeof content.nodeName==="string"
     );
 };
 
@@ -91,10 +91,7 @@ Snack.prototype.show = function(content, timeout){
     this._isVisible = true;
 
     if(timeout){
-        setTimeout(function(){
-            this.hide();
-            this._isVisible = false;
-        }.bind(this), timeout);
+        setTimeout(this.hide.bind(this), timeout);
     }
 };
 
@@ -106,7 +103,7 @@ Snack.prototype.hide = function(){
     this.element.classList
         .remove('snack-opened');
 
-    this._isVisible = true;
+    this._isVisible = false;
 };
 
 /**
