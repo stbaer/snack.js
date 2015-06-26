@@ -7,7 +7,7 @@ Can be used with browserify or standalone.
 
 ## Use
 
-`npm install stbaer/snack.js --save-dev`
+`npm install snack.js --save-dev`
 
 add the css (dist/css/snack.min.css)
 
