@@ -9,6 +9,8 @@ Can be used with browserify or standalone.
 
 `npm install snack.js --save-dev`
 
+[![NPM](https://nodei.co/npm/snack.js.png?downloads=true)](https://nodei.co/npm/snack.js/)
+
 add the css (dist/css/snack.min.css)
 
 ### browserify
