@@ -12,11 +12,11 @@
 
 ## Usage
 
-** css **
+**css**
 
 include *dist/css/snack.min.css*
 
-** js **
+**js**
 
 ```js
 var Snack = require('snack.js'); // or include dist/snack.min.js for the standalone version
@@ -51,6 +51,11 @@ Then you can install the dependencies and build:
 ```js
 npm i && gulp build
 ```
+
+Other gulp tasks:
+
+- `gulp serve` - starts a browserify server, open index.html for a snack example
+- `gulp jshint` - jshint task
 
 
 That will output the built distributables to `./dist`.
