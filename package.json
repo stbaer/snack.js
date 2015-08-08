@@ -1,6 +1,6 @@
 {
   "name": "snack.js",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Simple toast notifications for modern browsers without dependencies.",
   "main": "src/snack.js",
   "scripts": {
