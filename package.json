@@ -1,14 +1,20 @@
 {
   "name": "snack.js",
   "version": "0.1.1-0",
-  "description": "Simple toast notifications for modern browsers without dependencies.",
+  "description": "Lightweight toast notifications module",
   "main": "src/snack.js",
+  "keywords": [
+    "toast",
+    "toasts",
+    "snack",
+    "snacks",
+    "notifications",
+    "notification",
+    "browserify"
+  ],
   "scripts": {
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/stbaer/snack.js.git"
-  },
+  "repository": "stbaer/snack.js",
   "author": "Steffen Bär",
   "license": "MIT",
   "bugs": {

@@ -1,6 +1,6 @@
 # snack.js
 
-> Simple lightweight toasts
+> Lightweight toast notifications module
 
 [![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
 
