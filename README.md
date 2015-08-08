@@ -10,7 +10,7 @@
 
 [![NPM](https://nodei.co/npm/snack.js.png?downloads=true)](https://nodei.co/npm/snack.js/)
 
- `snack = new Snack()`
+## Usage
 
 ** css **
 
