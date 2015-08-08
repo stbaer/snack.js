@@ -1,14 +1,11 @@
 var gulp = require('gulp');
-var plugins = require("gulp-load-plugins")();
+var plugins = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 
-gulp.task('styles_material', function () {
+gulp.task('styles', function () {
 
-    return gulp.src('./styles/snack.material.less')
+    return gulp.src('./styles/snack.less')
         .pipe(plugins.less())
-        .pipe(plugins.rename(function (path) {
-            path.basename = 'snack.material';
-        }))
         .pipe(plugins.autoprefixer())
         .pipe(gulp.dest('dist/css'))
         .pipe(plugins.csso())
@@ -17,7 +14,4 @@ gulp.task('styles_material', function () {
         }))
         .pipe(gulp.dest('dist/css'))
         .pipe(browserSync.reload({stream: true}));
-
 });
-
-gulp.task('styles', ['styles_material']);
