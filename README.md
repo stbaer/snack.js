@@ -1,27 +1,63 @@
-[![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges)
-
 # snack.js
 
-Simple toast notifications for modern browsers without dependencies.
-Can be used with browserify or standalone.
+> Simple lightweight toasts
 
-## Use
+[![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
 
-`npm install snack.js --save-dev`
+## Install
+
+`npm i snack.js`
 
 [![NPM](https://nodei.co/npm/snack.js.png?downloads=true)](https://nodei.co/npm/snack.js/)
 
-add the css (dist/css/snack.min.css)
+ `snack = new Snack()`
 
-### browserify
+** css **
+
+include *dist/css/snack.min.css*
+
+** js **
 
 ```js
-var Snack = require('snack.js');
-var snack = new Snack();
+var Snack = require('snack.js'); // or include dist/snack.min.js for the standalone version
 
-snack.show('A snack', 4000);
+var snack = new Snack({
+    // optional, defaults to document.body
+    domParent: document.querySelector('.some-element');
+});
+
+// show a snack for 4s
+snack.show('Snack content', 4000);
 ```
 
-### standalone
+## API
 
-Include snack.min.js and snack.min.css from the dist folder (see index.html).
+- `snack.show(content, timeout)` - show snack with *content* for *timeout* ms
+
+    content can be a string or html
+
+- `snack.hide()` - hide the snack
+
+- `snack.toggle()` - show / hide the Snack
+
+- `snack.destroy()`
+
+## Build
+
+You will need to have [node][node] and [gulp][gulp] setup on your machine.
+
+Then you can install the dependencies and build:
+
+```js
+npm i && gulp build
+```
+
+
+That will output the built distributables to `./dist`.
+
+[node]:       http://nodejs.org/
+[gulp]:       http://gulpjs.com/
+
+## Licence
+
+MIT
