@@ -49,13 +49,8 @@ You will need to have [node][node] and [gulp][gulp] setup on your machine.
 Then you can install the dependencies and build:
 
 ```js
-npm i && gulp build
+npm i && npm run build
 ```
-
-Other gulp tasks:
-
-- `gulp serve` - starts a browserify server, open index.html for a snack example
-- `gulp jshint` - jshint task
 
 
 That will output the built distributables to `./dist`.
