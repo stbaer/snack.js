@@ -1,6 +1,6 @@
 # snack.js
 
-> Simple lightweight toasts
+> Simple lightweight toasts (minified and gzipped less ~ 1.5 kb js incl. bundled css);
 
 [![unstable](http://badges.github.io/stability-badges/dist/unstable.svg)](http://github.com/badges/stability-badges)
 
@@ -12,23 +12,33 @@
 
 ## Usage
 
-**css**
-
-include *dist/css/snack.min.css*
-
 **js**
 
-```js
-var Snack = require('snack.js'); // or include dist/snack.min.js for the standalone version
+```
+var Snack = require('snack.js'); // or include dist/snack.(min.)js for the standalone version
 
 var snack = new Snack({
     // optional, defaults to document.body
     domParent: document.querySelector('.some-element');
 });
-
+ 
 // show a snack for 4s
 snack.show('Snack content', 4000);
+ 
+// html content
+snack.show('<h1>HTML</h1>');
+ 
+// hide the snack
+snack.hide();
+ 
+// toggle / show it again
+snack.toggle();
+ 
+// destroy the snack
+ snack.destroy();
 ```
+
+The styles are included in the dist/js files (via [cssify](https://www.npmjs.com/package/cssify));
 
 ## API
 
@@ -38,25 +48,21 @@ snack.show('Snack content', 4000);
 
 - `snack.hide()` - hide the snack
 
-- `snack.toggle()` - show / hide the Snack
+- `snack.toggle()` - show / hide the snack
 
-- `snack.destroy()`
+- `snack.destroy()` - destroy the instance
 
 ## Build
 
-You will need to have [node][node] and [gulp][gulp] setup on your machine.
+Install the dependencies, `npm i`, then run the build `npm run build`
 
-Then you can install the dependencies and build:
+## Examples / visual tests
 
-```js
-npm i && npm run build
-```
+*[beefy](http://didact.us/beefy/) is expected to be installed globally -> `npm i beefy -g`
 
+- Standalone: `npm run test:visual-standalone`
 
-That will output the built distributables to `./dist`.
-
-[node]:       http://nodejs.org/
-[gulp]:       http://gulpjs.com/
+- Browserify: `npm run test:visual-browserify`
 
 ## Licence
 

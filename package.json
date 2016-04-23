@@ -2,7 +2,7 @@
   "name": "snack.js",
   "version": "0.1.2",
   "description": "Lightweight toast notifications module",
-  "main": "src/snack.js",
+  "main": "dist/snack.js",
   "keywords": [
     "toast",
     "toasts",
@@ -13,38 +13,68 @@
     "browserify"
   ],
   "scripts": {
-    "build": "gulp build"
+    "show:gz-min-so": "echo \"js minified and gzipped: \" && gzip -c dist/snack.min.js | wc -c",
+    "uglify:dist": "uglifyjs ./dist/snack.js --screw-ie8 -mc > ./dist/snack.min.js",
+    "uglify": "npm run uglify:dist && npm run show:gz-min-so",
+    "min:css": "csso styles/snack.css > styles/snack.min.css",
+    "hint": "jshint --reporter=node_modules/jshint-stylish src/*.js",
+    "test:visual-standalone": "beefy --index=test/visual/standalone.html",
+    "test:visual-browserify": "beefy test/visual/browserify-test.js",
+    "build:prepare": "npm run hint && rm -rf ./dist && mkdirp dist && npm run min:css",
+    "build:standalone": "browserify src/index.js --standalone Snack > dist/snack.js && npm run uglify",
+    "build": "npm run build:prepare && npm run build:standalone"
   },
   "repository": "stbaer/snack.js",
-  "author": "Steffen Bär",
+  "author": "Steffen Bär<stbaer.pup@gmail.com",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/stbaer/snack.js/issues"
   },
   "homepage": "https://github.com/stbaer/snack.js#readme",
+  "dependencies": {
+    "cssify": "^1.0.2"
+  },
   "devDependencies": {
-    "browser-sync": "^2.11.1",
-    "browserify": "^13.0.0",
-    "del": "^2.2.0",
-    "deps": "^0.1.2",
-    "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-concat": "2.6.0",
-    "gulp-csso": "^2.0.0",
-    "gulp-jshint": "^2.0.0",
-    "gulp-less": "3.0.5",
-    "gulp-load-plugins": "^1.2.2",
-    "gulp-rename": "1.2.2",
-    "gulp-template": "^4.0.0",
-    "gulp-uglify": "^1.5.3",
-    "gulp-util": "3.0.7",
-    "gulp-wrap": "^0.11.0",
-    "jshint-stylish": "2.1.0",
-    "merge-stream": "^1.0.0",
-    "minimist": "^1.2.0",
-    "require-dir": "^0.3.0",
-    "vinyl": "^1.1.1",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "1.1.0"
+    "browserify": "latest",
+    "csso": "latest",
+    "jshint": "latest",
+    "jshint-stylish": "latest",
+    "mkdirp": "latest",
+    "uglify-js": "latest"
+  },
+  "browserify": {
+    "transform": [
+      "cssify"
+    ]
+  },
+  "jshintConfig": {
+    "node": true,
+    "bitwise": true,
+    "camelcase": true,
+    "curly": true,
+    "eqeqeq": true,
+    "forin": true,
+    "freeze": true,
+    "immed": true,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "sub": true,
+    "eqnull": true,
+    "browser": true,
+    "laxcomma": true,
+    "trailing": true,
+    "smarttabs": true,
+    "nonew": true,
+    "quotmark": false,
+    "nonbsp": true,
+    "undef": true,
+    "jquery": true,
+    "unused": "vars",
+    "esversion": 5,
+    "browserify": true,
+    "globals": {
+      "console": false
+    }
   }
 }
