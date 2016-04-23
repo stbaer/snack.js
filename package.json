@@ -2,7 +2,7 @@
   "name": "snack.js",
   "version": "1.0.0",
   "description": "Lightweight toast notifications module",
-  "main": "dist/snack.js",
+  "main": "src/index.js",
   "keywords": [
     "toast",
     "toasts",
@@ -21,8 +21,7 @@
     "test:visual-standalone": "beefy --index=test/visual/standalone.html",
     "test:visual-browserify": "beefy test/visual/browserify-test.js",
     "build:prepare": "npm run hint && rm -rf ./dist && mkdirp dist && npm run min:css",
-    "build:standalone": "browserify src/index.js --standalone Snack > dist/snack.js && npm run uglify",
-    "build": "npm run build:prepare && npm run build:standalone"
+    "build": "npm run build:prepare && browserify src/index.js --standalone Snack > dist/snack.js && npm run uglify"
   },
   "repository": "stbaer/snack.js",
   "author": "Steffen Bär<stbaer.pup@gmail.com",
