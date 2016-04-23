@@ -1,6 +1,6 @@
 {
   "name": "snack.js",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Lightweight toast notifications module",
   "main": "dist/snack.js",
   "keywords": [
